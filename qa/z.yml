@@ -29,7 +29,7 @@ tasks:
 
             By default, runs through 'rhino /opt/jshint/jshint-rhino.js'
         do:
-            - ?(qa.jshint.files) for f in $(qa.jshint.files); do $(qa.jshint.run) $f; done || true;
+            - @(if qa.jshint.files) for f in $(qa.jshint.files); do $(qa.jshint.run) $f; done || true;
 
     # Do phpcs quality check
     qa.phpcs:
